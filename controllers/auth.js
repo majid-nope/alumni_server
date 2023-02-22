@@ -10,6 +10,7 @@ const auth = {
   login: (req, res) => {
     users.findOne({ phone: req.body.phone }).then((data) => {
       res.status(200).json(data);
+      
     });
   },
 };
