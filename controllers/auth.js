@@ -19,9 +19,11 @@ const auth = {
       res.status(200).json(data);
     });
   },
-  logout: (req,res) => {
-    res.cookie("u_id", "none", { expires: Date.now() });
-    res.send("successfully log out")
+  logout: (req, res) => {
+    res.cookie("u_id", "none", {
+      expires: new Date(1),
+    });
+    res.send("successfully log out");
   },
 };
 
