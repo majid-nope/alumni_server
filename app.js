@@ -9,7 +9,7 @@ const authRouter = require("./routes/auth");
 const usersRouter = require("./routes/users");
 
 const app = express();
-require("mongoose").set("strictQuery", true).connect(process.env.MONG_URL);
+require("mongoose").set("strictQuery",  false).connect(process.env.MONG_URL);
 
 app.use(
   cors({

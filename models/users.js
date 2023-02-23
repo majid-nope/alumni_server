@@ -6,11 +6,9 @@ const userModel = mongoose.Schema({
   email: String,
   password: String,
   name: {
-    required: true,
     type: String,
   },
   phone: {
-    required: true,
     type: String,
   },
   division: String,
@@ -18,7 +16,6 @@ const userModel = mongoose.Schema({
   gender: String,
   passOut: Number,
   class: {
-    required: true,
     type: String,
   },
   job: String,

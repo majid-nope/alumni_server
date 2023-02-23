@@ -6,10 +6,17 @@ const user = {
     console.log(req);
     console.log(id);
     users.findById(id, { passOut: 1 }).then((result) => {
-      users.find({ passOut: result.passOut }).then((result) => {
-        console.log(result);
-        res.status(200).json(result);
-      });
+      if (result?.passOut) {
+        users.find({ passOut: result.passOut }).then((result) => {
+          console.log(result);
+          res.status(200).json(result);
+        });
+      } else {
+        users.find().then((result) => {
+          console.log(result);
+          res.status(200).json(result);
+        });
+      }
     });
   },
   one: (req, res) => [
