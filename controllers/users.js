@@ -2,9 +2,14 @@ const users = require("../models/users");
 
 const user = {
   all: (req, res) => {
-    users.find().then((result) => {
-      console.log(result);
-      res.status(200).json(result);
+    const id = req.cookies["u_id"];
+    console.log(req);
+    console.log(id);
+    users.findById(id, { passOut: 1 }).then((result) => {
+      users.find({ passOut: result.passOut }).then((result) => {
+        console.log(result);
+        res.status(200).json(result);
+      });
     });
   },
   one: (req, res) => [
