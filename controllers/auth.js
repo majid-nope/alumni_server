@@ -21,6 +21,7 @@ const auth = {
   },
   logout: (req,res) => {
     res.cookie("u_id", "none", { expires: Date.now() });
+    res.send("successfully log out")
   },
 };
 
